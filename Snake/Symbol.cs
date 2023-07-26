@@ -8,9 +8,11 @@ namespace Snake
 {
     internal class Symbol
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public readonly char Char;
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
+        public char Char { get; protected set; }
+
+        public Symbol() { }
         public Symbol(int x,int y,char symbol)
         {
             X = x;
@@ -18,7 +20,7 @@ namespace Snake
             Char = symbol;
         }
 
-        public void Draw()
+        virtual public void Draw()
         {
             Console.SetCursorPosition(X, Y);
             Console.Write(Char);
